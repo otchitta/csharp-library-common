@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otchitta.Libraries.Common", "Source.Code\Otchitta.Libraries.Common.csproj", "{3D57F52D-E9AC-4AE1-93B7-B9A03C41A01E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source.Demo", "Source.Demo", "{1FDE128C-F079-4001-822C-E315D5B864CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo01", "Demo01", "{04C211E1-C2D6-454B-8017-791FA9FEE97D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otchitta.Example.Demo01.Library", "Source.Demo\Demo01\Library\Otchitta.Example.Demo01.Library.csproj", "{A176B05A-25AA-454B-8733-7250AD5F7FED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otchitta.Example.Demo01.Console", "Source.Demo\Demo01\Console\Otchitta.Example.Demo01.Console.csproj", "{B034F6F4-07F1-47E2-8881-0245C5F176CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otchitta.Example.Demo01.Graphic", "Source.Demo\Demo01\Graphic\Otchitta.Example.Demo01.Graphic.csproj", "{C41908E3-4CCC-4F7A-85AE-A0C7936210A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D57F52D-E9AC-4AE1-93B7-B9A03C41A01E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D57F52D-E9AC-4AE1-93B7-B9A03C41A01E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D57F52D-E9AC-4AE1-93B7-B9A03C41A01E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D57F52D-E9AC-4AE1-93B7-B9A03C41A01E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A176B05A-25AA-454B-8733-7250AD5F7FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A176B05A-25AA-454B-8733-7250AD5F7FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A176B05A-25AA-454B-8733-7250AD5F7FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A176B05A-25AA-454B-8733-7250AD5F7FED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B034F6F4-07F1-47E2-8881-0245C5F176CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B034F6F4-07F1-47E2-8881-0245C5F176CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B034F6F4-07F1-47E2-8881-0245C5F176CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B034F6F4-07F1-47E2-8881-0245C5F176CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C41908E3-4CCC-4F7A-85AE-A0C7936210A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C41908E3-4CCC-4F7A-85AE-A0C7936210A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C41908E3-4CCC-4F7A-85AE-A0C7936210A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C41908E3-4CCC-4F7A-85AE-A0C7936210A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{04C211E1-C2D6-454B-8017-791FA9FEE97D} = {1FDE128C-F079-4001-822C-E315D5B864CE}
+		{A176B05A-25AA-454B-8733-7250AD5F7FED} = {04C211E1-C2D6-454B-8017-791FA9FEE97D}
+		{B034F6F4-07F1-47E2-8881-0245C5F176CE} = {04C211E1-C2D6-454B-8017-791FA9FEE97D}
+		{C41908E3-4CCC-4F7A-85AE-A0C7936210A8} = {04C211E1-C2D6-454B-8017-791FA9FEE97D}
+	EndGlobalSection
+EndGlobal

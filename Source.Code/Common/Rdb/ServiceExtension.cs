@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace Otchitta.Libraries.Common.Rdb;
 
 /// <summary>
-/// 処理共通関数クラスです。
+/// 処理拡張関数クラスです。
 /// </summary>
 public static class ServiceExtension {
 	#region IDbCommand関連
@@ -72,7 +72,7 @@ public static class ServiceExtension {
 	/// <param name="name">引数名称</param>
 	/// <param name="data">引数情報</param>
 	public static void AddParamDateTime(this IDbCommand command, string name, DateTime? data) =>
-		AddParamObject(command, name, DbType.DateTime, data);
+		AddParamObject(command, name, DbType.DateTime2, data);
 	/// <summary>
 	/// 引数情報を設定します。
 	/// </summary>

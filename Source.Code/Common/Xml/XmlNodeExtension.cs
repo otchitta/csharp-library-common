@@ -7,7 +7,7 @@ using System.Xml;
 namespace Otchitta.Libraries.Common.Xml;
 
 /// <summary>
-/// <see cref="XmlNode" />用拡張クラスです。
+/// <see cref="XmlNode" />用拡張関数クラスです。
 /// </summary>
 public static class XmlNodeExtension {
 	#region 内部メソッド定義(GetList/GetString)

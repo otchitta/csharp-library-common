@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands type="System.Data.SqlClient">
+  <command name="Report:Source:SelectList"><![CDATA[SELECT f_source_code
+     , f_source_name
+     , f_source_text
+     , f_status_code
+     , f_invoke_time
+     , f_finish_time
+     , f_result_text
+     , f_insert_name
+     , f_insert_time
+     , f_update_name
+     , f_update_time
+  FROM t_report_source WITH(NOLOCK)
+ ORDER BY f_source_code]]></command>
+  <command name="Report:Source:InsertData"><![CDATA[INSERT INTO t_report_source
+      (f_source_name, f_source_text, f_status_code, f_invoke_time, f_finish_time, f_result_text, f_insert_name, f_insert_time, f_update_name, f_update_time)
+OUTPUT INSERTED.f_source_code, INSERTED.f_invoke_time, INSERTED.f_insert_time, INSERTED.f_update_time
+VALUES(@SourceName, @SourceText, @StatusCode, SYSDATETIME(), @FinishTime, @ResultText, @InsertName, SYSDATETIME(), @InsertName, SYSDATETIME())]]></command>
+  <command name="Report:Source:FinishData"><![CDATA[UPDATE t_report_source
+   SET f_status_code = @StatusCode
+     , f_finish_time = SYSDATETIME()
+     , f_result_text = @ResultText
+     , f_update_name = @UpdateName
+     , f_update_time = SYSDATETIME()
+OUTPUT INSERTED.f_finish_time
+     , INSERTED.f_update_time
+ WHERE f_source_code = @SourceCode
+   AND f_update_time = @UpdateTime]]></command>
+  <command name="Report:Source:UpdateList"><![CDATA[UPDATE t_report_source
+   SET f_status_code = @StatusCode
+     , f_update_name = @UpdateName
+     , f_update_time = SYSDATETIME()
+ WHERE f_source_name = @SourceName
+   AND f_status_code = @BeforeCode]]></command>
+
+  <command name="Report:Invoke:SelectList"><![CDATA[SELECT f_source_code
+     , f_invoke_code
+     , f_invoke_name
+     , f_invoke_text
+     , f_status_code
+     , f_invoke_size
+     , f_finish_size
+     , f_invoke_time
+     , f_finish_time
+     , f_result_text
+     , f_insert_name
+     , f_insert_time
+     , f_update_name
+     , f_update_time
+  FROM t_report_invoke WITH(NOLOCK)
+ WHERE f_source_code = @SourceCode
+ ORDER BY f_invoke_code]]></command>
+  <command name="Report:Invoke:InsertData"><![CDATA[INSERT INTO t_report_invoke
+      (f_source_code, f_invoke_code, f_invoke_name, f_invoke_text, f_status_code, f_invoke_size, f_finish_size, f_invoke_time, f_finish_time, f_result_text, f_insert_name, f_insert_time, f_update_name, f_update_time)
+OUTPUT INSERTED.f_insert_time, INSERTED.f_update_time
+VALUES(@SourceCode, @InvokeCode, @InvokeName, @InvokeText, @StatusCode, @InvokeSize, @FinishSize, @InvokeTime, @FinishTime, @ResultText, @InsertName, SYSDATETIME(), @InsertName, SYSDATETIME())]]></command>
+  <command name="Report:Invoke:InvokeData"><![CDATA[UPDATE t_report_invoke
+   SET f_status_code = @StatusCode
+     , f_invoke_time = SYSDATETIME()
+     , f_update_name = @UpdateName
+     , f_update_time = SYSDATETIME()
+OUTPUT INSERTED.f_invoke_time
+     , INSERTED.f_update_time
+ WHERE f_source_code = @SourceCode
+   AND f_invoke_code = @InvokeCode
+   AND f_update_time = @UpdateTime]]></command>
+  <command name="Report:Invoke:UpdateData"><![CDATA[UPDATE t_report_invoke
+   SET f_invoke_size = @InvokeSize
+     , f_finish_size = @FinishSize
+     , f_update_name = @UpdateName
+     , f_update_time = SYSDATETIME()
+OUTPUT INSERTED.f_update_time
+ WHERE f_source_code = @SourceCode
+   AND f_invoke_code = @InvokeCode
+   AND f_update_time = @UpdateTime]]></command>
+  <command name="Report:Invoke:FinishData"><![CDATA[UPDATE t_report_invoke
+   SET f_status_code = @StatusCode
+     , f_finish_time = SYSDATETIME()
+     , f_result_text = @ResultText
+     , f_update_name = @UpdateName
+     , f_update_time = SYSDATETIME()
+OUTPUT INSERTED.f_finish_time
+     , INSERTED.f_update_time
+ WHERE f_source_code = @SourceCode
+   AND f_invoke_code = @InvokeCode
+   AND f_update_time = @UpdateTime]]></command>
+  <command name="Report:Invoke:CancelData"><![CDATA[UPDATE t_report_invoke
+   SET f_status_code = @StatusCode
+     , f_update_name = @UpdateName
+     , f_update_time = SYSDATETIME()
+OUTPUT INSERTED.f_update_time
+ WHERE f_source_code = @SourceCode
+     , f_invoke_code = @InvokeCode
+   AND f_update_time = @UpdateTime]]></command>
+  <command name="Report:Invoke:UpdateList"><![CDATA[UPDATE t_report_invoke
+   SET f_status_code = @StatusCode
+     , f_update_name = @UpdateName
+     , f_update_time = SYSDATETIME()
+ WHERE f_source_code IN (SELECT f_source_code FROM t_report_source WHERE f_source_name = @SourceName)
+   AND f_status_code IN (@Parameter1, @Parameter2)]]></command>
+</commands>

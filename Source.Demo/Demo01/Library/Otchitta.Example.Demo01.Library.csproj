@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 基本設定(↓) -->
+  <PropertyGroup>
+    <!-- 実行環境設定 -->
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <!-- XMLドキュメント生成 -->
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+  <!-- 基本設定(↑) -->
+
+  <!-- 参照設定(↓) -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Source.Code\Otchitta.Libraries.Common.csproj" />
+  </ItemGroup>
+  <!-- 参照設定(↑) -->
+
+  <!-- 配置設定(↓) -->
+  <ItemGroup>
+    <None Update="Report.MSSQL.xml"  CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Report.SQLite.xml" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <!-- 配置設定(↑) -->
+</Project>

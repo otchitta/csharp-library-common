@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 基本設定(↓) -->
+  <PropertyGroup>
+    <!-- 実行環境設定 -->
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <!-- XMLドキュメント生成 -->
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+  <!-- 基本設定(↑) -->
+
+  <!-- 参照設定(↓) -->
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Library\Otchitta.Example.Demo01.Library.csproj" />
+  </ItemGroup>
+  <!-- 参照設定(↑) -->
+</Project>
