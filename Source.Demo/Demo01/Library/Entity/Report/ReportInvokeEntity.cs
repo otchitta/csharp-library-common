@@ -320,7 +320,6 @@ public sealed class ReportInvokeEntity {
 			UpdateTime = chooseData.Item2;
 			return true;
 		} else {
-			Console.WriteLine("{0,6}:{1,6}:{2:yyyy-MM-dd HH:mm:ss.fffffff}", SourceCode, InvokeCode, UpdateTime);
 			return false;
 		}
 	}

@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otchitta.Example.Demo01.Con
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otchitta.Example.Demo01.Graphic", "Source.Demo\Demo01\Graphic\Otchitta.Example.Demo01.Graphic.csproj", "{C41908E3-4CCC-4F7A-85AE-A0C7936210A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otchitta.UnitTests.Common", "Source.Test\Otchitta.UnitTests.Common.csproj", "{B4FA6B9B-E862-4625-9C9B-A439F1DB7D79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{C41908E3-4CCC-4F7A-85AE-A0C7936210A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C41908E3-4CCC-4F7A-85AE-A0C7936210A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C41908E3-4CCC-4F7A-85AE-A0C7936210A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4FA6B9B-E862-4625-9C9B-A439F1DB7D79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4FA6B9B-E862-4625-9C9B-A439F1DB7D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4FA6B9B-E862-4625-9C9B-A439F1DB7D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4FA6B9B-E862-4625-9C9B-A439F1DB7D79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{04C211E1-C2D6-454B-8017-791FA9FEE97D} = {1FDE128C-F079-4001-822C-E315D5B864CE}

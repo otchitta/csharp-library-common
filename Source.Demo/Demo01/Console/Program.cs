@@ -11,11 +11,13 @@ internal static class Program {
 	/// <summary>
 	/// データベース接続名称
 	/// </summary>
-	private const string DatabaseConnector = "System.Data.SqlClient";
+	//private const string DatabaseConnector = "System.Data.SqlClient";
+	private const string DatabaseConnector = "System.Data.SQLite";
 	/// <summary>
 	/// データベース接続引数
 	/// </summary>
-	private const string DatabaseParameter = "Data Source=localhost; Initial Catalog=data_report; User ID=data_worker; Password=xxx123XXX;";
+	//private const string DatabaseParameter = "Data Source=localhost; Initial Catalog=data_report; User ID=data_worker; Password=xxx123XXX;";
+	private const string DatabaseParameter = "Data Source=..\\report.db";
 
 	#region 出力メソッド定義
 	/// <summary>
@@ -98,7 +100,8 @@ internal static class Program {
 	/// デモプログラムを実行します。
 	/// </summary>
 	private static void Invoke() {
-		System.Data.Common.DbProviderFactories.RegisterFactory(DatabaseConnector, System.Data.SqlClient.SqlClientFactory.Instance);
+		System.Data.Common.DbProviderFactories.RegisterFactory("System.Data.SqlClient", System.Data.SqlClient.SqlClientFactory.Instance);
+		System.Data.Common.DbProviderFactories.RegisterFactory("System.Data.SQLite",    System.Data.SQLite.SQLiteFactory.Instance);
 		Invoke(DatabaseConnector, DatabaseParameter);
 	}
 	#endregion 実行メソッド定義

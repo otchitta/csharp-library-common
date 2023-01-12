@@ -168,7 +168,7 @@ public static class XmlNodeExtension {
 	/// <param name="defaultData">既定情報</param>
 	/// <returns>属性情報</returns>
 	[return: NotNullIfNotNull("defaultData")]
-	public static string? GetString(this XmlNode elementData, string elementName, string defaultData) =>
+	public static string? GetString(this XmlNode elementData, string elementName, string? defaultData) =>
 		GetString(elementData, elementName, out var includeData)? includeData: defaultData;
 	#endregion 公開メソッド定義(GetString)
 
@@ -181,7 +181,7 @@ public static class XmlNodeExtension {
 	/// <param name="includeData">属性情報</param>
 	/// <returns><paramref name="elementName" />が存在した場合、<c>True</c>を返却</returns>
 	/// <exception cref="XmlNodeException">属性情報の形式が正しくない場合</exception>
-	public static bool GetBoolean(this XmlNode elementData, string elementName, [MaybeNullWhen(false)]out bool includeData) {
+	public static bool GetBoolean(this XmlNode elementData, string elementName, out bool includeData) {
 		if (GetString(elementData, elementName, out var includeText) == false) {
 			includeData = default;
 			return false;
@@ -232,7 +232,7 @@ public static class XmlNodeExtension {
 	/// <param name="includeData">属性情報</param>
 	/// <returns><paramref name="elementName" />が存在した場合、<c>True</c>を返却</returns>
 	/// <exception cref="XmlNodeException">属性情報の形式が正しくない場合</exception>
-	public static bool GetByte(this XmlNode elementData, string elementName, [MaybeNullWhen(false)]out byte includeData) {
+	public static bool GetByte(this XmlNode elementData, string elementName, out byte includeData) {
 		if (GetString(elementData, elementName, out var includeText) == false) {
 			includeData = default;
 			return false;
@@ -283,7 +283,7 @@ public static class XmlNodeExtension {
 	/// <param name="includeData">属性情報</param>
 	/// <returns><paramref name="elementName" />が存在した場合、<c>True</c>を返却</returns>
 	/// <exception cref="XmlNodeException">属性情報の形式が正しくない場合</exception>
-	public static bool GetInt16(this XmlNode elementData, string elementName, [MaybeNullWhen(false)]out short includeData) {
+	public static bool GetInt16(this XmlNode elementData, string elementName, out short includeData) {
 		if (GetString(elementData, elementName, out var includeText) == false) {
 			includeData = default;
 			return false;
@@ -334,7 +334,7 @@ public static class XmlNodeExtension {
 	/// <param name="includeData">属性情報</param>
 	/// <returns><paramref name="elementName" />が存在した場合、<c>True</c>を返却</returns>
 	/// <exception cref="XmlNodeException">属性情報の形式が正しくない場合</exception>
-	public static bool GetInt32(this XmlNode elementData, string elementName, [MaybeNullWhen(false)]out int includeData) {
+	public static bool GetInt32(this XmlNode elementData, string elementName, out int includeData) {
 		if (GetString(elementData, elementName, out var includeText) == false) {
 			includeData = default;
 			return false;
@@ -385,7 +385,7 @@ public static class XmlNodeExtension {
 	/// <param name="includeData">属性情報</param>
 	/// <returns><paramref name="elementName" />が存在した場合、<c>True</c>を返却</returns>
 	/// <exception cref="XmlNodeException">属性情報の形式が正しくない場合</exception>
-	public static bool GetInt64(this XmlNode elementData, string elementName, [MaybeNullWhen(false)]out long includeData) {
+	public static bool GetInt64(this XmlNode elementData, string elementName, out long includeData) {
 		if (GetString(elementData, elementName, out var includeText) == false) {
 			includeData = default;
 			return false;
@@ -436,7 +436,7 @@ public static class XmlNodeExtension {
 	/// <param name="includeData">属性情報</param>
 	/// <returns><paramref name="elementName" />が存在した場合、<c>True</c>を返却</returns>
 	/// <exception cref="XmlNodeException">属性情報の形式が正しくない場合</exception>
-	public static bool GetTimeSpan(this XmlNode elementData, string elementName, [MaybeNullWhen(false)]out TimeSpan includeData) {
+	public static bool GetTimeSpan(this XmlNode elementData, string elementName, out TimeSpan includeData) {
 		if (GetString(elementData, elementName, out var includeText) == false) {
 			includeData = default;
 			return false;
@@ -486,7 +486,7 @@ public static class XmlNodeExtension {
 	/// <param name="includeData">属性情報</param>
 	/// <returns><paramref name="elementName" />が存在した場合、<c>True</c>を返却</returns>
 	/// <exception cref="XmlNodeException">属性情報の形式が正しくない場合</exception>
-	public static bool GetTimeSpan(this XmlNode elementData, string elementName, string patternText, [MaybeNullWhen(false)]out TimeSpan includeData) {
+	public static bool GetTimeSpan(this XmlNode elementData, string elementName, string patternText, out TimeSpan includeData) {
 		if (GetString(elementData, elementName, out var includeText) == false) {
 			includeData = default;
 			return false;
@@ -540,7 +540,7 @@ public static class XmlNodeExtension {
 	/// <param name="includeData">属性情報</param>
 	/// <returns><paramref name="elementName" />が存在した場合、<c>True</c>を返却</returns>
 	/// <exception cref="XmlNodeException">属性情報の形式が正しくない場合</exception>
-	public static bool GetDateTime(this XmlNode elementData, string elementName, [MaybeNullWhen(false)]out DateTime includeData) {
+	public static bool GetDateTime(this XmlNode elementData, string elementName, out DateTime includeData) {
 		if (GetString(elementData, elementName, out var includeText) == false) {
 			includeData = default;
 			return false;
@@ -590,7 +590,7 @@ public static class XmlNodeExtension {
 	/// <param name="includeData">属性情報</param>
 	/// <returns><paramref name="elementName" />が存在した場合、<c>True</c>を返却</returns>
 	/// <exception cref="XmlNodeException">属性情報の形式が正しくない場合</exception>
-	public static bool GetDateTime(this XmlNode elementData, string elementName, string patternText, [MaybeNullWhen(false)]out DateTime includeData) {
+	public static bool GetDateTime(this XmlNode elementData, string elementName, string patternText, out DateTime includeData) {
 		if (GetString(elementData, elementName, out var includeText) == false) {
 			includeData = default;
 			return false;

@@ -62,6 +62,9 @@ public static class CommandExtension {
 		} else if (configData.GetString("type", out var sourceName) == false) {
 			resultList = default;
 			return false;
+		} else if (sourceName != searchName) {
+			resultList = default;
+			return false;
 		} else {
 			resultList = new Dictionary<string, string>();
 			foreach (var chooseData in configData.GetList("command")) {

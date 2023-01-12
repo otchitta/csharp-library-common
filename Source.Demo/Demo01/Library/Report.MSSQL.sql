@@ -27,6 +27,7 @@ GO
 
 EXEC sp_addrolemember 'db_datareader', 'data_worker';
 EXEC sp_addrolemember 'db_datawriter', 'data_worker';
+EXEC sp_addrolemember 'db_ddladmin',   'data_worker';
 GO
 
 -- ------------------------------------------------------------------
@@ -115,21 +116,19 @@ SELECT f_source_code
      , COUNT(CASE WHEN f_status_code = 1 THEN 1 END) AS f_process_count
      , COUNT(CASE WHEN f_status_code = 2 THEN 1 END) AS f_success_count
      , COUNT(CASE WHEN f_status_code = 3 THEN 1 END) AS f_failure_count
-     , COUNT(CASE WHEN f_status_code = 4 THEN 1 END) AS f_stopped_count
-  FROM t_report_invoke WITH(NOLOCK)
+     , COUNT(CASE WHEN f_status_code = 4 THEN 1 END) AS f_suspend_count
+  FROM t_report_invoke
  GROUP BY f_source_code
 )
 SELECT t1.f_source_code
      , t1.f_source_name
      , CASE t1.f_status_code
-            WHEN 1 THEN '実行中'
-            WHEN 2 THEN '実行済'
-            ELSE        '不明(' + CAST(t1.f_source_code AS VARCHAR) + ')'
+            WHEN 1 THEN '実行'
+            WHEN 2 THEN '成功'
+            WHEN 3 THEN '失敗'
+            WHEN 4 THEN '取消'
+            ELSE        '不明(' || t1.f_source_code ||  ')'
        END AS f_status_name
-     , CASE WHEN t1.f_status_code = 2
-            THEN CASE WHEN t1.f_result_text IS NULL THEN '成功' ELSE '失敗' END
-            ELSE NULL
-       END AS f_result_name
      , t2.f_invoke_size
      , t2.f_finish_size
      , t1.f_invoke_time
@@ -140,8 +139,7 @@ SELECT t1.f_source_code
      , t2.f_process_count
      , t2.f_success_count
      , t2.f_failure_count
-     , t2.f_stopped_count
-  FROM t_report_source t1 WITH(NOLOCK)
+     , t2.f_suspend_count
+  FROM t_report_source t1
   LEFT JOIN w_report_invoke t2
     ON t2.f_source_code = t1.f_source_code;
-GO

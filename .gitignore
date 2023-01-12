@@ -6,3 +6,7 @@
 # 作業フォルダ
 bin/
 obj/
+Source.Test/Result.File/
+
+# テストデータ
+Source.Demo/Demo01/report.db

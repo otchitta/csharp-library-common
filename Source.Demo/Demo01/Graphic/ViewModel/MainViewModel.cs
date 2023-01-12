@@ -23,7 +23,7 @@ public sealed class MainViewModel : AbstractViewModel {
 	#region メンバー変数定義
 	/// <summary>
 	/// 状態種別(0:未実行 1:実行中 2:停止中)
-	/// <para>内部でのみ参照可能<para>
+	/// <para>内部でのみ参照可能</para>
 	/// </summary>
 	private int statusCode;
 	/// <summary>
